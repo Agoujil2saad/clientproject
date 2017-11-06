@@ -23,7 +23,9 @@ public class RegisterServlet extends HttpServlet {
             try {
                 IClientMetier client = (IClientMetier) Naming.lookup("rmi://localhost/client");
                 if (client.register(username, password, type)){
-                    response.sendRedirect("/");
+                    LoginServlet ls = new LoginServlet();
+                    ls.doPost(request,response);
+
                 }
             }catch (NotBoundException e){
                 e.printStackTrace();
@@ -33,6 +35,10 @@ public class RegisterServlet extends HttpServlet {
             try {
                 IGrossisteMetier grossiste = (IGrossisteMetier) Naming.lookup("rmi://localhost/grossiste");
                 grossiste.register(username, password, type);
+                LoginServlet ls = new LoginServlet();
+                ls.doPost(request,response);
+
+
             }catch (NotBoundException e){
                 e.printStackTrace();
             }

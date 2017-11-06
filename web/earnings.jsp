@@ -9,28 +9,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Here you can buy & sell your products">
-    <meta name="author" content="Ayoub Ed-dafali">
-    <title>Products Store</title>
+    <meta name="description" content="Projet jee">
+    <title>Mini Projet JEE / Pr.Y.ELBOUZEKRI</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/semantic.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="/assets/css/cover.css" rel="stylesheet">
+    <%--<link href="/assets/css/cover.css" rel="stylesheet">--%>
     <link rel="stylesheet" href="/assets/css/mycss.css">
-    <style>
-        .navbar > .container, .navbar > .container-fluid{
-            justify-content:space-around;
-        }
-    </style>
+
 </head>
 
 <body>
-<%@include file="/client_products_navbar.jsp" %>
 
-<main role="main">
-    <div class="container">
-
+<div class="ui grid centered">
+    <%@include file="/navbar.jsp" %>
         <%
             String username = (String)session.getAttribute("username");
             ArrayList<Product>  buyed_products = new ArrayList<Product>();
@@ -42,13 +35,13 @@
             }catch (NotBoundException e){
                 e.printStackTrace();
             }
-            StringBuilder result = new StringBuilder("<table class=\"table table-striped\">\n");
+            StringBuilder result = new StringBuilder("<table class=\"ui single line table\">\n");
             result.append(
                     "            <thead>\n" +
                             "            <tr>\n" +
-                            "                <th>Product Name</th>\n"  +
-                            "                <th>Prodct Price</th>\n" +
-                            "                <th>Buyer</th>\n" +
+                            "                <th>Nom produit</th>\n"  +
+                            "                <th>Prix (MAD)</th>\n" +
+                            "                <th>Nom Client</th>\n" +
                             "            </tr>\n" +
                             "            </thead>\n" +
                             "            <tbody>\n") ;
@@ -63,20 +56,49 @@
                         "            <tbody>\n") ;
             }
             result.append("   </tbody>\n" + "        </table>");
-            result.append("<h3 align='center'> Total Benefit = " +  total   +  " DH </h3");
+            result.append("" +
+                    "<div class=\"ui massive statistics\">"+
+                    "<div class=\"teal statistic\">\n" +
+                    "    <div class=\"value\">\n" +
+                    "      <i class=\"money icon\"></i>\n" + total+
+                    "    MAD</div>\n" +
+                    "    <div class=\"label\">\n" +
+                    "      Profits\n" +
+                    "    </div>\n" +
+                    "</div>"+
+                    "</div>");
             out.print(result);
         %>
     </div>
+</div>
 
-</main>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
 <script src="/assets/js/jquery-3.2.1.min.js"></script>
 <script src="/assets/js/popper.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/myscript.js" > </script>
+<script src="/assets/js/semantic.js"></script>
+<script src="/assets/js/myscript.js"></script>
+<script>
+    $('.ui.dropdown').dropdown();
+
+    $('a[href^="#"]').on('click', function(event) {
+
+        var target = $(this.getAttribute('href'));
+
+        if( target.length ) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+
+    });
+</script>
 </body>
 </html>

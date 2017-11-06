@@ -9,102 +9,119 @@
     <!-- Bootstrap core CSS -->
     <link href="/assets/css/semantic.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="/assets/css/cover.css" rel="stylesheet">
+    <%--<link href="/assets/css/cover.css" rel="stylesheet">--%>
     <link rel="stylesheet" href="/assets/css/mycss.css">
+
 </head>
 
 <body>
 
-<div class="site-wrapper">
+<div class="ui centered  grid">
 
-    <div class="site-wrapper-inner">
+    <%@include file="authStatus.jsp" %>
 
-        <div class="cover-container">
+    <%@include file="navbar.jsp" %>
 
-            <%@include  file="navbar.jsp"%>
 
-            <main id="main" role="main" class="inner cover">
-                <h1 class="cover-heading">Buy & Sell Your Products.</h1>
-                <p class="lead">Here you can sell your products and buy it from others. It's like Amazon for your products.</p>
-            </main>
-            <main id="login" role="main" class="inner cover get_out">
-                <form class="form-signin" action="/login" method="post">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="email">Username:</label>
-                        <span class="col-sm-5">
-                            <input type="text" name="username" class="form-control" id="email2" placeholder="Enter username">
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="pwd">Password:</label>
-                        <span class="col-sm-5">
-                            <input type="password" class="form-control"  name="password"  id="pwd2" placeholder="Enter password">
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Type:</label>
-                        <span  class="col-sm-offset-2 col-sm-5">
-                            <select name="type" class="form-control" id="user_type2">
-                                <option value="client">Client</option>
-                                <option value="grossiste">Grossiste</option>
-                            </select>
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-5">
-                            <div class="checkbox">
-                                <label><input type="checkbox"> Remember me</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <span class="col-sm-offset-2 col-sm-5">
-                            <button type="submit" class="btn btn-success btn-block">Login</button>
-                        </span>
-                    </div>
-                </form>
-            </main>
+    <div class="row">
+        <img src="/assets/img/market.jpg" alt="" class="ui image fluid">
+    </div>
 
-            <main id="signup" role="main" class="inner cover get_out"  >
-                <form class="form-signin" action="/register" method="post">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="email">Username:</label>
-                        <span class="col-sm-5">
-                            <input type="text" name="username" class="form-control" id="email" placeholder="Enter username">
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="pwd">Password:</label>
-                        <span class="col-sm-5">
-                            <input type="password" name="password"  class="form-control" id="pwd" placeholder="Enter password">
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Type:</label>
-                        <span class="col-sm-offset-2 col-sm-5">
-                            <select name="type" class="form-control" id="user_type">
-                                <option value="client">Client</option>
-                                <option value="grossiste">Grossiste</option>
-                            </select>
-                        </span>
-                    </div>
-                    <div class="form-group">
-                        <span class="col-sm-offset-2 col-sm-5">
-                            <button type="submit" class="btn btn-success btn-block">Register</button>
-                        </span>
-                    </div>
-                </form>
-            </main>
 
-            <footer class="mastfoot">
-                <div class="inner">
-                    <p>By <a href="#">@Ayoub</a>, and  <a href="#">@Hakim</a>.</p>
-                </div>
-            </footer>
+    <div class="row">
+        <div class="eight wide column">
+
+
+            <div class="ui  centered segment">
+                <h1 class="ui  centered header">Site Ecommerce</h1>
+
+            </div>
 
         </div>
 
     </div>
+
+
+
+
+        <div id="login" role="main" style="height: 100vh;" class="row">
+
+            <form class="ui huge form" action="/login"  style="padding-top: 5em" method="post">
+                <div class="field">
+                    <label class="label" for="email">Username:</label>
+                    <div class="ui input left icon">
+                        <i class="user icon"></i>
+                        <input type="text" name="username" id="email2" placeholder="Enter username">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="pwd">Password:</label>
+                    <span class="ui input left icon">
+                            <i class="icon lock"></i>
+                            <input type="password" class="form-control" name="password" id="pwd2"
+                                   placeholder="Enter password">
+                        </span>
+                </div>
+
+
+                <div class="field">
+                    <label class="label">Client/grossiste:</label>
+
+                    <select name="type" class="ui dropdown" id="user_type2">
+                        <option value="client">Client</option>
+                        <option value="grossiste">Grossiste</option>
+                    </select>
+                </div>
+
+                <div class="field">
+
+                    <button type="submit" class="ui orange button">Login</button>
+
+                </div>
+            </form>
+        </div>
+
+        <div id="signup" role="main" class="row" style="height: 100vh;">
+
+            <form class="ui huge form" action="/register" method="post" style="padding-top: 5em">
+                <div class="field">
+                    <label class="label" for="email">Username:</label>
+
+                    <div class="ui input left icon">
+                        <i class="user icon"></i>
+                        <input type="text" name="username" id="email" placeholder="Enter username">
+                    </div>
+
+
+                </div>
+                <div class="field">
+                    <label class="label" for="pwd">Password:</label>
+                    <span class="ui input left icon">
+                            <i class="icon lock"></i>
+                             <input type="password" name="password" id="pwd" placeholder="Enter password">
+                        </span>
+
+
+                </div>
+                <div class="field">
+                    <label class="label">Client/
+                        Grossiste</label>
+
+                    <select name="type" class="ui dropdown" id="user_type">
+                        <option value="client">Client</option>
+                        <option value="grossiste">Grossiste</option>
+                    </select>
+
+                </div>
+                <div class="field">
+                    <button type="submit" class="ui yellow button">Register</button>
+                </div>
+            </form>
+        </div>
+
+
+
 
 </div>
 
@@ -112,10 +129,28 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
 <script src="/assets/js/jquery-3.2.1.min.js"></script>
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/semantic.js"></script>
-<script src="/assets/js/myscript.js" > </script>
+<script src="/assets/js/myscript.js"></script>
+<script>
+    $('.ui.dropdown').dropdown();
+
+    $('a[href^="#"]').on('click', function(event) {
+
+        var target = $(this.getAttribute('href'));
+
+        if( target.length ) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+
+    });
+</script>
 </body>
 </html>

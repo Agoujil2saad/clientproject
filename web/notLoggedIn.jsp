@@ -33,11 +33,7 @@
             </main>
 
 
-            <footer class="mastfoot">
-                <div class="inner">
-                    <p>By <a href="#">@Ayoub</a>, and  <a href="#">@Hakim</a>.</p>
-                </div>
-            </footer>
+
 
         </div>
 
