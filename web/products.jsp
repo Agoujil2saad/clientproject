@@ -25,8 +25,8 @@
 <div class="ui centred grid">
     <%@include file="navbar.jsp" %>
 
-    <div class="row" role="main">
-
+    <div class="row">
+        <input type="text" id="search" placeholder="Type to search" >
 
 
             <%
@@ -41,8 +41,9 @@
                 }
                 StringBuilder p = new StringBuilder("<ul class=\"cd-gallery\">\n");
                 for (Product product : products) {
-                    p.append("<li>");
-                    p.append("<ul class=\"cd-item-wrapper\">\n" +
+                    p.append("<li id=\"cd-item-wrapper\">");
+                    p.append("<a id='lo'></a>");
+                    p.append("<ul class=\"cd-item-wrapper\"  >\n" +
                             "                    <li class=\"selected\">\n" +
                             "                        <img src=\"/assets/img/ugmonk-tshirt-1.jpg\" alt=\"Preview image\">\n" +
                             "                    </li>\n" +
@@ -58,7 +59,7 @@
 
 
                     p.append(" <div class=\"cd-item-info\">\n" +
-                            "                <b><a href=\"#0\">" + product.getName() + ";" + product.getSeller() + "</a></b>\n" +
+                            "               <a href=\"#0\" class='username'>" + product.getName() + ";" + product.getSeller() + "</a>\n" +
                             "\n" +
                             "                <em class=\"cd-price\">" + product.getPrice() + "</em>\n" +
                             "            </div> <!-- cd-item-info -->");
@@ -107,7 +108,13 @@
 
     });
 
+
+    var $rows = $('#cd-item-wrapper li');
+    $('#search').keyup(function() {
+    });
+
 </script>
+
 <script src="/assets/product_slider/js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
