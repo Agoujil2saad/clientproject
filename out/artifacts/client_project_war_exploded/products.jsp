@@ -26,7 +26,6 @@
     <%@include file="navbar.jsp" %>
 
 
-
     <div class="row">
         <div class="four wide column">
             <div class="ui large  form">
@@ -34,6 +33,30 @@
                     <input type="text" id="search" placeholder="Type to search"  onkeyup="searchByUsername()">
 
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <%--display menu to grossite to make easier to add,list and show product--%>
+    <div class="middle aligned row">
+        <div class="column two wide">
+            <%--<div  style="padding-top: 150px;">--%>
+
+                <a href="/products" class="circular ui icon button orange">
+                    <i class="large list icon"></i>
+                </a>
+
+                <%--<span class="or"></span>--%>
+
+                <a href="/addProduct" class="circular ui icon button">
+                    <i class="large icon plus"></i>
+                </a>
+
+                <%--<span class="or"></span>--%>
+                <a href="/earnings" class="ui yellow icon compact circular button">
+                    <i class="large icon shop"></i>
+                </a>
+
             </div>
         </div>
     </div>

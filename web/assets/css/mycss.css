@@ -1,5 +1,24 @@
 .get_out {
     display: none;
 }
-
+#scrollToTop{
+    width:100px;
+    height:100px;
+    padding:10px;
+    text-align:center;
+    /*background: whiteSmoke;*/
+    font-weight: bold;
+    color: #444;
+    text-decoration: none;
+    position:fixed;
+    /*top:500px;*/
+    bottom: 10px;
+    right:40px;
+    display:none;
+    /*background: url('/assets/img/Double Up_64px.png') no-repeat 0px 20px;*/
+    background-color: #BEBEBE;
+}
+#scrollToTop:hover{
+    text-decoration:none;
+}
 
