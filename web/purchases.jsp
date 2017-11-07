@@ -25,9 +25,8 @@
 <div class="ui grid">
 
 <%@include file="/navbar.jsp" %>
+<div class="row">
 
-<main role="main">
-    <div class="container">
 
         <%
             ArrayList<Product> purchasedProducts = new ArrayList<Product>();
@@ -67,9 +66,8 @@
             out.print(p);
         %>
 </div>
+</div>
 
-</main>
-    </div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -96,6 +94,7 @@
         }
 
     });
+
 
 </script>
 </body>

@@ -11,22 +11,33 @@
     <meta name="description" content="Projet jee">
     <title>Mini Projet JEE / Pr.Y.ELBOUZEKRI</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/css/semantic.css" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <%--<link href="/assets/css/cover.css" rel="stylesheet">--%>
     <link rel="stylesheet" href="/assets/css/mycss.css">
     <link rel="stylesheet" href="/assets/product_slider/css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="/assets/product_slider/css/style.css"> <!-- Resource style -->
-
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/semantic.css" rel="stylesheet">
 </head>
 
 <body>
-<div class="ui centred grid">
+<div class="ui centered grid">
     <%@include file="navbar.jsp" %>
 
+
+
     <div class="row">
-        <input type="text" id="search" placeholder="Type to search" >
+        <div class="four wide column">
+            <div class="ui large  form">
+                <div class="field">
+                    <input type="text" id="search" placeholder="Type to search"  onkeyup="searchByUsername()">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
 
 
             <%
@@ -109,9 +120,23 @@
     });
 
 
-    var $rows = $('#cd-item-wrapper li');
-    $('#search').keyup(function() {
-    });
+    function searchByUsername() {
+        // Declare variables
+        var input, filter, items, block, a, i;
+        input = document.getElementById('search');
+        filter = input.value.toUpperCase();
+        block = document.querySelector('.cd-gallery');
+        items =block.querySelectorAll('#cd-item-wrapper')
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < items.length; i++) {
+            a =items[i].querySelector('.cd-item-info').querySelector('.username');
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                items[i].style.display = "";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+    }
 
 </script>
 
