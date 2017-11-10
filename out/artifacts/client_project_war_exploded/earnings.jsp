@@ -111,7 +111,7 @@
         prefix: '',
         suffix: 'MAD'
     };
-    var demo = new CountUp("counter", 0, <% out.print(total); %>, 1, 3, options);
+    var demo = new CountUp("counter", 0, <% out.print(total); %>, 1, 2, options);
     demo.start();
 </script>
 </body>
