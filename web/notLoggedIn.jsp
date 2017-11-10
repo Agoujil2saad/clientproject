@@ -6,7 +6,6 @@
     <meta name="description" content="Here you can buy & sell your products">
     <meta name="author" content="Ayoub Ed-dafali">
     <title>Products Store</title>
-
     <!-- Bootstrap core CSS -->
     <link href=/assets/css/bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -17,28 +16,17 @@
 <body>
 
 <div class="site-wrapper">
-
     <div class="site-wrapper-inner">
-
         <div class="cover-container">
-
             <%@include  file="navbar.jsp"%>
-
             <main id="main" role="main" class="inner cover">
-
-                    <p>YOU SHOULD LOG IN FIRST</p>
+                    <p>VOUS N ETES PAS CONNECTES !</p>
                     <p class="lead">
                         <a href="/" class="btn btn-lg btn-success">Here</a>
                     </p>
             </main>
-
-
-
-
         </div>
-
     </div>
-
 </div>
 
 

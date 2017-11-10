@@ -27,11 +27,11 @@
 
 
     <div class="row">
-        <div class="four wide column">
+        <div class="six wide centered column">
             <div class="ui large  form">
                 <div class="field">
+                   <div class="ui centered header tiny">Filter search by name, product name and price:</div>
                     <input type="text" id="search" placeholder="Type to search"  onkeyup="searchByUsername()">
-
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
 
 
                     p.append(" <div class=\"cd-item-info\">\n" +
-                            "               <a href=\"#0\" class='username'>" + product.getName() + ";" + product.getSeller() + "</a>\n" +
+                            "               <a href=\"#0\" class='username'>" + product.getName() + ":" + product.getSeller() + ":" + product.getPrice() +"</a>\n" +
                             "\n" +
                             "                <em class=\"cd-price\">" + product.getPrice() + "</em>\n" +
                             "            </div> <!-- cd-item-info -->");
@@ -145,15 +145,23 @@
 
     function searchByUsername() {
         // Declare variables
-        var input, filter, items, block, a, i;
+        var input, filter, items, block, a, i,b, j;
         input = document.getElementById('search');
         filter = input.value.toUpperCase();
-        block = document.querySelector('.cd-gallery');
-        items =block.querySelectorAll('#cd-item-wrapper')
+        block = document.querySelector('.cd-gallery'); //pick all elements with this class
+        items =block.querySelectorAll('#cd-item-wrapper');   // p ick all elements within the id
         // Loop through all list items, and hide those who don't match the search query
         for (i = 0; i < items.length; i++) {
             a =items[i].querySelector('.cd-item-info').querySelector('.username');
-            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1 ) {
+                items[i].style.display = "";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+        for(j=0; j< items.length; j++){
+            b=items[i].querySelector('.cd-item-info').querySelector('.cd-price');
+            if (b.textContent === filter.toString() ) {
                 items[i].style.display = "";
             } else {
                 items[i].style.display = "none";

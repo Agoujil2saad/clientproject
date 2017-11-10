@@ -60,8 +60,8 @@
                     "<div class=\"ui massive statistics\">"+
                     "<div class=\"teal statistic\">\n" +
                     "    <div class=\"value\">\n" +
-                    "      <i class=\"money icon\"></i>\n" + total+
-                    "    MAD</div>\n" +
+                    "      <i class=\"money icon\" id=\"counter\"></i>\n"+ //total+
+                    //"    MAD</div>\n" +
                     "    <div class=\"label\">\n" +
                     "      Profits\n" +
                     "    </div>\n" +
@@ -81,6 +81,7 @@
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
 <script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script src="/assets/js/countUp.min.js"></script>
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/semantic.js"></script>
 <script src="/assets/js/myscript.js"></script>
@@ -99,6 +100,19 @@
         }
 
     });
+</script>
+<%--CountUp animation for profits--%>
+<script>
+    var options = {
+        useEasing:  true,
+        useGrouping: true,
+        separator: ',',
+        decimal: '.',
+        prefix: '',
+        suffix: 'MAD'
+    };
+    var demo = new CountUp("counter", 0, <% out.print(total); %>, 1, 3, options);
+    demo.start();
 </script>
 </body>
 </html>
